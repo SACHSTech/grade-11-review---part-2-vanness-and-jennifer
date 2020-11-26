@@ -1,27 +1,35 @@
 package gr11review.part2;
 
 public class Utility {
-  public static int sumNumbers(String str) {
+
+/**
+* A program that returns the sum of the numbers appearing in a given string, ignoring all other characters.  
+*  @author: J. Luk
+* 
+*/
+  public static int sumNumbers(String strInput) {
 
     // declare variables
     int numbersum = 0;
-    
-    // 
-    for (int i = 0; i < str.length(); i++) {
-      if (Character.isDigit(str.charAt(i))) {
-        int count = 0; 
-        for (count = i+1; count < str.length() && Character.isDigit(str.charAt(count)); count++) { 
-          if (Character.isDigit(str.charAt(count))) {
-            count++;
-          }else {
-            break;
-          }
-          numbersum = numbersum + Integer.parseInt(str.substring(i, count));
-          i = count;
+    String temp = "";
+
+    // read each character in input string
+    for (int i = 0; i < strInput.length(); i++) {
+
+      // check if character is a digit
+      if (Character.isDigit(strInput.charAt(i))) {
+
+        if (i < strInput.length() - 1 && Character.isDigit(strInput.charAt(i + 1))) {
+          temp += strInput.charAt(i);
+        }
+        else {
+          temp += strInput.charAt(i);
+          numbersum += Integer.parseInt(temp);
+          temp = "";
         }
       }
     }
-    return numbersum; 
+    return numbersum;
 
   }
 }
