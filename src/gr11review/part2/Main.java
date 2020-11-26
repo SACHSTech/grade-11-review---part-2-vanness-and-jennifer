@@ -10,8 +10,10 @@ public class Main {
     // instantiate BufferedReader object
     BufferedReader key = new BufferedReader(new InputStreamReader(System.in));
 
+    // Method 2
     // declare variables
     String strInput;
+    String strOutput; 
     int intsum;
 
     // ask for string input
@@ -22,6 +24,15 @@ public class Main {
 
     // print the sum
     System.out.println("The sum of the digits in the string is: " + intsum);
+
+    // FileIO 2
+    String filenametxt;
+
+    System.out.print("Enter a file name: ");
+    filenametxt = key.readLine();
+
+    strOutput = Utility.alphaWord(filenametxt);
+
 
   }
 }
