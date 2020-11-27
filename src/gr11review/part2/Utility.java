@@ -1,5 +1,7 @@
 package gr11review.part2;
 
+import java.io.*;
+
 public class Utility {
 
   /**
@@ -40,36 +42,56 @@ public class Utility {
    * @author: J. Luk
    * 
    */
-  public static String alphaWord(String filenametxt) {
-    int n = 0;
-    String word;
-    int count;
-    String temp = "";
-    String[] list = new String[1000];
+  public static String alphaWord(String filenametxt) throws IOException {
+    BufferedReader filename = new BufferedReader(new FileReader(filenametxt));
 
-    while (filenametxt.eof() == false) {
-      word = filenametxt.readLine();
+    // declare variables 
+    int numlines = 0;
+    int count;
+    String temp;
+
+    String word = filename.readLine();
+    
+    // count the number of lines 
+    while (word != null) {
+      word = filename.readLine();
+      numlines++;
+    }
+
+    String[] list = new String[numlines];
+
+    filename.close();
+    filename = new BufferedReader(new FileReader(filenametxt));
+
+    // set each line into the string array
+    for (count = 0; count < numlines; count++) {
+      word = filename.readLine();
       list[count] = word;
-      count++;
-      n++; 
     }
     
+    for (count = 0; count < numlines; count++) {
+      for (int count2 = count + 1; count2 < numlines; count2++) {
 
-    for (count = 0; count < n; count++) {
-      for (int j = count + 1; j < n; j++) {
-        if (list[count].compareTo(list[j]) > 0) {
+        // compare the lines to see if swapping is needed
+        if (list[count].compareTo(list[count2]) > 0) {
+
+          // store the first element in a temporary element
           temp = list[count];
-          list[count] = list[j];
-          list[j] = temp;
+
+          // replace the first element by the second element
+          list[count] = list[count2];
+
+          // replace the second element by the temporary element
+          list[count2] = temp;
         }
       }
     }
-    System.out.print("Names in Sorted Order:");
-    for (count = 0; count < n - 1; count++) {
-      System.out.print(list[count] + ",");
-    }
-    System.out.print(list[n - 1]);
-    filenametxt.close();
 
+    // set the string as the top word after sorting
+    word = list[1];
+
+    filename.close();
+    return word;
   }
+
 }

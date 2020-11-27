@@ -7,31 +7,23 @@ public class Main {
 
   public static void main(String[] args) throws IOException {
  
-    // instantiate BufferedReader object
-    BufferedReader key = new BufferedReader(new InputStreamReader(System.in));
-
     // Method 2
     // declare variables
-    String strInput;
+    String str = "abc123xyz";
     String strOutput; 
     int intsum;
 
-    // ask for string input
-    System.out.print("Enter a string: ");
-    strInput = key.readLine();
-
-    intsum = Utility.sumNumbers(strInput);
+    intsum = Utility.sumNumbers(str);
 
     // print the sum
     System.out.println("The sum of the digits in the string is: " + intsum);
 
     // FileIO 2
-    String filenametxt;
+    // declare variables
+    
+    strOutput = Utility.alphaWord("src/gr11review/part2/words.txt");
 
-    System.out.print("Enter a file name: ");
-    filenametxt = key.readLine();
-
-    strOutput = Utility.alphaWord(filenametxt);
+    System.out.println("this is the word: "+strOutput);
 
 
   }
