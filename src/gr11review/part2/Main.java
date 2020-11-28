@@ -10,7 +10,6 @@ public class Main {
     // Method 2
     // declare variables
     String str = "abc123xyz";
-    String strOutput; 
     int intsum;
 
     intsum = Utility.sumNumbers(str);
@@ -19,12 +18,22 @@ public class Main {
     System.out.println("The sum of the digits in the string is: " + intsum);
 
     // FileIO 2
-    // declare variables
+    String Output;
+    Output = Utility.alphaWord("src/gr11review/part2/words.txt");
+
+    // print results 
+    System.out.println("The word that is alphabetically first is" +Output);
+
+    // Arrays 2
+
+    // int[] nums = {1, 2, 3, 2, 5, 2}; 
+    // int value = 2;
+    // int[] arr = notAlone(nums, value);
+   
     
-    strOutput = Utility.alphaWord("src/gr11review/part2/words.txt");
-
-    System.out.println("this is the word: "+strOutput);
-
+    //Arrays 4
+    int[] list = {1, 1, 1, 2, 1};
+    System.out.println(canBalance(list));
 
   }
 }

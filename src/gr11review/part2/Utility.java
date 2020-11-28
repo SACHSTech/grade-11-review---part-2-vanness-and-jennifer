@@ -5,12 +5,10 @@ import java.io.*;
 public class Utility {
 
   /**
-   * A program that returns the sum of the numbers appearing in a given string,
-   * ignoring all other characters.
-   * 
-   * @author: J. Luk
-   * 
-   */
+  * A program that returns the sum of the numbers appearing in a given string, ignoring all other characters.
+  * @author: J. Luk
+  * 
+  */
   public static int sumNumbers(String strInput) {
 
     // declare variables
@@ -36,23 +34,21 @@ public class Utility {
   }
 
   /**
-   * A method that given the name of a file filenametxt that contains a single
-   * word on each line, returns the word that is alphabetically first.
-   * 
-   * @author: J. Luk
-   * 
-   */
+  * A method that given the name of a file filenametxt that contains a single word on each line, returns the word that is alphabetically first.
+  * @author: J. Luk
+  * 
+  */
   public static String alphaWord(String filenametxt) throws IOException {
     BufferedReader filename = new BufferedReader(new FileReader(filenametxt));
 
-    // declare variables 
+    // declare variables
     int numlines = 0;
     int count;
     String temp;
 
     String word = filename.readLine();
-    
-    // count the number of lines 
+
+    // count the number of lines
     while (word != null) {
       word = filename.readLine();
       numlines++;
@@ -68,30 +64,92 @@ public class Utility {
       word = filename.readLine();
       list[count] = word;
     }
-    
+
     for (count = 0; count < numlines; count++) {
       for (int count2 = count + 1; count2 < numlines; count2++) {
-
+        
         // compare the lines to see if swapping is needed
-        if (list[count].compareTo(list[count2]) > 0) {
+        if (list[count].compareToIgnoreCase(list[count2]) > 0) {
 
           // store the first element in a temporary element
           temp = list[count];
 
           // replace the first element by the second element
           list[count] = list[count2];
-
+          
           // replace the second element by the temporary element
           list[count2] = temp;
+          
         }
       }
     }
 
     // set the string as the top word after sorting
-    word = list[1];
+    word = list[0];
 
     filename.close();
     return word;
   }
 
+  /**
+  * A method that returns a version of the given array where every instance of the given value which is alone is replaced by whichever value to its left or right is larger.
+  * @author: J. Luk
+  * 
+  */
+  // public int[] notAlone(int[] nums, int value) {
+  //   int[] array = new int[nums.length];
+
+  //   if(nums.length >= 1) {
+
+  //     array[0] = nums[0];
+  //     array[array.length-1] = nums[nums.length-1];
+      
+  //   }
+
+  //   for(int count = 1; count <= nums.length - 2; count++) {
+  //     if (nums[count] == value && nums[count] != nums[count - 1] && nums[count] != nums[count+1]) {
+  //       array [count] = Math.max(nums[count - 1], nums[count + 1]);
+  //     }else{
+  //       array[count] = nums[count];
+  //     }
+
+  //   }
+  // return array; 
+  // }
+
+  /**
+  * A method that returns true if there is a place to split the array so that the sum of the numbers on one side is equal to the sum of the numbers on the other side.
+  * @author: J. Luk
+  * 
+  */
+  public boolean canBalance(int[] nums){
+
+    // declare variables
+    int sum = 0;
+    int sum2 = 0;
+
+    for (int count= 0; count < nums.length; count++) {
+      
+      // count the sum of the array 
+      sum = sum + nums[count];
+    }
+    for (int count = 0; count <= nums.length - 2; count++) {
+
+      // add the numbers that are side by side together 
+      sum = sum + nums[count];
+
+      // subtract the numbers from the sum of the array 
+      sum2 = sum2 - nums[count];
+
+      // check if the two sums are equal at each loop
+      if (sum == sum2) {
+
+        // return true if the sum on one side is equal to the other
+        return true; 
+      }
+    }
+
+    // return false if the sums on both sides are not equal
+    return false; 
+  }
 }
