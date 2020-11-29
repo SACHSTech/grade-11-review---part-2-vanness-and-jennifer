@@ -13,27 +13,32 @@ public class Main {
     int intsum;
 
     intsum = Utility.sumNumbers(str);
-
+    
     // print the sum
     System.out.println("The sum of the digits in the string is: " + intsum);
 
     // FileIO 2
-    String Output;
-    Output = Utility.alphaWord("src/gr11review/part2/words.txt");
+    String Output = Utility.alphaWord("src/gr11review/part2/words.txt");
 
     // print results 
-    System.out.println("The word that is alphabetically first is" +Output);
+    System.out.println("The word that is alphabetically first is " +Output);
 
     // Arrays 2
-
     // int[] nums = {1, 2, 3, 2, 5, 2}; 
     // int value = 2;
-    // int[] arr = notAlone(nums, value);
-   
+    // System.out.println(notAlone(nums, value));
     
-    //Arrays 4
-    int[] list = {1, 1, 1, 2, 1};
-    System.out.println(canBalance(list));
+    // //Arrays 4
+    // int[] list = {1, 1, 1, 2, 1};
+    // System.out.println(Utility.canBalance(list[]));
 
+    // Arrays 6 
+    int n = 4; 
+    int MAX = 100; 
+    int[][] mat = new int[MAX][MAX];
+
+    Utility.diagonal(n);
+    
+    
   }
 }
