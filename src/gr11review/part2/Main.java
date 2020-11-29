@@ -4,12 +4,17 @@ import gr11review.part2.Utility.*;
 import java.io.*;
 import java.util.Arrays;
 
+/**
+* A program that tests all the methods.
+* @author: V. Yang
+*
+*/
 public class Main{
   public static void main(String[] args) throws IOException{
     
     // Testing Methods 1 
     String strLongestWord;
-    
+
     System.out.println(Utility.zipZap("zzipzap"));
     
     // Testing FileIO 1
