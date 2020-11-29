@@ -48,62 +48,31 @@ public static String zipZap(String strWord){
       }
     }
   }
-  return strNoMiddle;
-  
-  }
+  return strNoMiddle; 
+}
 
   public static String longestWord(String filenametxt) throws IOException{
     BufferedReader filename = new BufferedReader(new FileReader(filenametxt));
 
-    int intLines;
-    int intCount;
-    int intLength1;
-    int intLength2;
-    int intCounter;
-    String strBigWord;
-    String strSmallWord;
     String strWord;
-    String strWord1;
-    String strWord2;
-
-    intLines = 0;
-    strBigWord = "";
-    strSmallWord = "";
-    intCounter = 0;
-    strWords1 = "";
-    strWords2 = "";
+    String strNextWord;
+    int intWordLength;
+    int intNextWordLength; 
 
     strWord = filename.readLine();
-
-    while(strWord != null){
-      strWord = filename.readLine();
-      intLines = intLines + 1;
-    }
+    strNextWord = filename.readLine();
     
-    filename.close();
-
-    String strWords[];
-    strWords = new String[intLines];
-    
-    filename = new BufferedReader(new FileReader(filenametxt));
-    intCounter = 1;
-    for(intCount = 0; intCount < intLines; intCount=intCount +2){
-      intCounter = intCounter + 2;
-      strWord1 = filename.readLine();
-      strWords2 = filename.readLine();
-      strWords[intCount] = strWords1;
-      strWords[intCounter] = strWords2;
-      intLength1 = strWord1.length();
-      intLength2 = strWord2.length();
-      if(intLength1 > intLength2){
-        strBigWord = strWord1;
-         strSmallWord = strWord2;
-      }else if(intLength1 < intLength2){
-        strBigWord = strWord2;
-        strSmallWord = strWord1;
+    while(strNextWord != null){
+      intWordLength = strWord.length();
+      intNextWordLength = strNextWord.length();
+      if(intNextWordLength >= intWordLength){
+        strWord = strNextWord; 
       }
+      strNextWord = filename.readLine();
     }
     filename.close();
-    return(strBigWord);
+    return strWord;
   }
+
+  public class 
 }
