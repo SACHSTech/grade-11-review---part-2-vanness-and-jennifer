@@ -2,15 +2,22 @@ package gr11review.part2;
 
 import java.io.*;
 
+/**
+* A program that contains all the methods
+* @author: J. Luk
+* 
+*/
 public class Utility {
 
   /**
-   * A program that returns the sum of the numbers appearing in a given string,
-   * ignoring all other characters.
-   * 
-   * @author: J. Luk
-   * 
-   */
+  * A program that returns the sum of the numbers appearing in a given string,
+  * ignoring all other characters.
+  * 
+  * @param
+  * @return
+  * @author: J. Luk
+  * 
+  */
   public static int sumNumbers(String strInput) {
 
     // declare variables
@@ -36,12 +43,12 @@ public class Utility {
   }
 
   /**
-   * A method that given the name of a file filenametxt that contains a single
-   * word on each line, returns the word that is alphabetically first.
-   * 
-   * @author: J. Luk
-   * 
-   */
+  * A method that given the name of a file filenametxt that contains a single
+  * word on each line, returns the word that is alphabetically first.
+  * 
+  * @author: J. Luk
+  * 
+  */
   public static String alphaWord(String filenametxt) throws IOException {
     BufferedReader filename = new BufferedReader(new FileReader(filenametxt));
 
