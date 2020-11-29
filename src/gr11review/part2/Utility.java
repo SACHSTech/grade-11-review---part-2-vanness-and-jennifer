@@ -1,5 +1,6 @@
 package gr11review.part2;
 
+import java.io.*;
 /**
 * A program that conatins all the methods
 * @author: V. Yang
@@ -9,7 +10,6 @@ public class Utility {
 
 /**
 * A method that for patterns like "zip" and "zap" in the string -- length-3, starting with 'z' and ending with 'p'. Return a string where for all such words, the middle letter is gone.
-*
 * @param strWord The word that will be analyzed to see if it has sections that beging with "z" and end with "p" and will have the middle letter of that section taken out 
 * @return The word without the middle letter of each section of the word that begins with "z" and ends with "p"
 * @author V. Yang
@@ -52,49 +52,60 @@ public static String zipZap(String strWord){
   
   }
 
-  public static String longestWord(String filenametxt){
-    BufferedReader thefile = new BufferedReader(new FileReader(filenametxt));
+  public static String longestWord(String filenametxt) throws IOException{
+    BufferedReader filename = new BufferedReader(new FileReader(filenametxt));
 
     int intLines;
     int intCount;
     int intLength1;
     int intLength2;
+    int intCounter;
     String strBigWord;
     String strSmallWord;
     String strWord;
+    String strWord1;
+    String strWord2;
 
     intLines = 0;
+    strBigWord = "";
+    strSmallWord = "";
+    intCounter = 0;
 
-    while(thefile != null){
-      strWord = thefile.readLine();
+    strWord = filename.readLine();
+
+    while(strWord != null){
+      strWord = filename.readLine();
       intLines = intLines + 1;
     }
-    thefile.close();
+    
+    filename.close();
 
     String strWords[];
     strWords = new String[intLines];
 
-    thefile = new BufferedReader(new FileReader(filenametxt));
+    filename = new BufferedReader(new FileReader(filenametxt));
 
     for(intCount = 0; intCount < intLines; intCount++){
-      strWord = thefile.readLine();
+      strWord = filename.readLine();
       strWords[intCount] = strWord;
     }
     
-    strBigWord = "";
-    strSmallWord = "";
-    for(intCount = 0; intCount < intLines; intCount++){
-      intLength1 = strWords[intCount].length();
-      intLength2 = strWords[intCount+1].length();
-      if(intLength1 > intLength2){
-        strBigWord = strWords[intCount];
-        strSmallWord = strWords[intCount+1];
-      }else if(intLength1 < intLength2){
-        strBigWord = strWords[intCount+1];
-        strSmallWord = strWords[intCount];
+    for(intCount = 0; intCount < intLines; intCount=intCount +2){
+      strWord1 = strWords[intCount];
+      intLength1 = strWord1.length();
+      for(intCounter = 1; intCount < intLines; intCounter = intCounter +2){
+        strWord2 = strWords[intCounter];
+        intLength2 = strWord2.length();
+        if(intLength1 > intLength2){
+          strBigWord = strWords[intCount];
+          strSmallWord = strWords[intCounter];
+        }else if(intLength1 < intLength2){
+          strBigWord = strWords[intCounter];
+          strSmallWord = strWords[intCount];
+        }
       }
     }
-    thefile.close();
+    filename.close();
     return(strBigWord);
   }
 }
