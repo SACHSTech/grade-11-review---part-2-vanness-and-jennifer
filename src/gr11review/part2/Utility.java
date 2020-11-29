@@ -70,6 +70,8 @@ public static String zipZap(String strWord){
     strBigWord = "";
     strSmallWord = "";
     intCounter = 0;
+    strWords1 = "";
+    strWords2 = "";
 
     strWord = filename.readLine();
 
@@ -82,27 +84,23 @@ public static String zipZap(String strWord){
 
     String strWords[];
     strWords = new String[intLines];
-
-    filename = new BufferedReader(new FileReader(filenametxt));
-
-    for(intCount = 0; intCount < intLines; intCount++){
-      strWord = filename.readLine();
-      strWords[intCount] = strWord;
-    }
     
+    filename = new BufferedReader(new FileReader(filenametxt));
+    intCounter = 1;
     for(intCount = 0; intCount < intLines; intCount=intCount +2){
-      strWord1 = strWords[intCount];
+      intCounter = intCounter + 2;
+      strWord1 = filename.readLine();
+      strWords2 = filename.readLine();
+      strWords[intCount] = strWords1;
+      strWords[intCounter] = strWords2;
       intLength1 = strWord1.length();
-      for(intCounter = 1; intCount < intLines; intCounter = intCounter +2){
-        strWord2 = strWords[intCounter];
-        intLength2 = strWord2.length();
-        if(intLength1 > intLength2){
-          strBigWord = strWords[intCount];
-          strSmallWord = strWords[intCounter];
-        }else if(intLength1 < intLength2){
-          strBigWord = strWords[intCounter];
-          strSmallWord = strWords[intCount];
-        }
+      intLength2 = strWord2.length();
+      if(intLength1 > intLength2){
+        strBigWord = strWord1;
+         strSmallWord = strWord2;
+      }else if(intLength1 < intLength2){
+        strBigWord = strWord2;
+        strSmallWord = strWord1;
       }
     }
     filename.close();
