@@ -3,11 +3,11 @@ package gr11review.part2;
 import java.io.*;
 
 /**
- * A program that contains all the methods
- * 
- * @author: J. Luk
- * 
- */
+* A program that contains all the methods
+* 
+* @author: J. Luk
+* 
+*/
 public class Utility {
 
   /**
@@ -212,23 +212,5 @@ public class Utility {
 
 }
 
-public static String longestWord(String filenametxt) throws IOException{
-    BufferedReader filename = new BufferedReader(new FileReader(filenametxt));
 
-    String strWord;
-    String strBigWord = "";
-
-    strWord = filename.readLine();
-
-    while(strWord != null){
-      strWord = filename.readLine();
-      strBigWord = filename.readLine();
-
-      if (strWord.length() >= strBigWord.length){
-        strBigWord = strWord;
-      }
-
-      }
-    return strBigWord; 
-    }
     
