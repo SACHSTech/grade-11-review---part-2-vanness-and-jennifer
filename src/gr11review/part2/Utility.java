@@ -200,14 +200,14 @@ public class Utility {
     }
     for (int count = 0; count < n; count++) {
       for (int count2 = 0; count2 < n; count2++) {
-        theout.print(mat[count][count2]);
+        theout.print((mat[count][count2]));
         if (count2 != n - 1) {
           theout.print(", ");
         }
       }
       theout.println();
     }
-
+  theout.close();
   }
 
 }
