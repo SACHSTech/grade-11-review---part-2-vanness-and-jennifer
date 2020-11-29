@@ -17,5 +17,10 @@ public class Main{
     int[] intNums = {1, 10, 2, 20, 30, 40};
     intNums = Utility.tenRun(intNums);
     System.out.println(Arrays.toString(intNums));
+  
+    int[] intOuter = {1, 2, 4, 4, 6};
+    int[] intInner = {2, 4};
+    Utility array3 = new Utility();
+    System.out.println(array3.linearIn(intOuter, intInner));
   }
 }
