@@ -1,6 +1,7 @@
 package gr11review.part2;
 
 import java.io.*;
+import java.util.Arrays.*;
 /**
 * A program that conatins all the methods
 * @author: V. Yang
@@ -74,5 +75,34 @@ public static String zipZap(String strWord){
     return strWord;
   }
 
-  public class 
+  public static int[] tenRun(int[] nums){
+    
+    int intCount; 
+    int intModulus;
+    int intModulus2;
+
+    for(intCount = 0; intCount < nums.length-1; intCount++){
+      intModulus = nums[intCount] % 10;
+      intModulus2 = nums[intCount+1] % 10;
+      if(intModulus == 0 && intModulus2 != 0){
+        nums[intCount+1] = nums[intCount];
+      }
+    }
+  
+  return nums;
+  }
+
+  public boolean linearIn(int[] outer, int[] inner){
+
+    int intCount;
+    Boolean blnCheck = false;
+
+    for(intCount = 0; intCount < outer.length; intCount++){
+      while(blnCheck == true){
+        if(outer[intCount] == inner[intCount]){
+        }else if(outer[intCount] != inner[inner] )
+      }
+    }
+  }
+  return  
 }
