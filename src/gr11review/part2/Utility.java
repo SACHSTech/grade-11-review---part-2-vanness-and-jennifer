@@ -16,36 +16,42 @@ public class Utility {
 * @author V. Yang
 */
 public static String zipZap(String strWord){
+  
+  // Variables
   int intLength;
   int intCount;
   String strNoMiddle;
   String strPFind;
   String strCharacter;
-  //String strMiddleFind; 
   
+  // Getting the length of the input 
   intLength = strWord.length();
 
+  // Initializing variables
   strNoMiddle = "";
 
-  for(intCount = 0; intCount < (intLength); intCount++){
-    //System.out.println(intCount);
-    strCharacter = strWord.substring(intCount, intCount+1);
-    if(intLength - 2 <= intCount){
+  // for loop runs until the end of the word is reached 
+  for (intCount = 0; intCount < (intLength); intCount++) {
+    // Grabbing each individual letter of the word
+    strCharacter = strWord.substring(intCount, intCount + 1);
+    // if statement to prevent intCount from going over the word length 
+    if (intLength - 2 <= intCount) {
       strNoMiddle = strNoMiddle + strCharacter;
     }else{
-      strPFind = strWord.substring(intCount+2, intCount+3);
-      //strMiddleFind = strWord.substring(intCount+1, intCount+2);
-      if(!strCharacter.equalsIgnoreCase("Z")){
+      strPFind = strWord.substring(intCount + 2, intCount + 3);
+      if (!strCharacter.equalsIgnoreCase("Z")) {
         strNoMiddle = strNoMiddle + strCharacter;
-      }else if(strCharacter.equalsIgnoreCase("Z") &&  !strPFind.equalsIgnoreCase("P")){
+      }else if (strCharacter.equalsIgnoreCase("Z") && !strPFind.equalsIgnoreCase("P")) {
         strNoMiddle = strNoMiddle + strCharacter;
-      }else if(strCharacter.equalsIgnoreCase("Z") && strPFind.equalsIgnoreCase("P")){
+      // Runs if the character is equal to z and the next letter is equal to p 
+      }else if (strCharacter.equalsIgnoreCase("Z") && strPFind.equalsIgnoreCase("P")) {
+        // Takes out the middle letter
         strNoMiddle = strNoMiddle + strCharacter + strPFind;
-        if(intLength - 2 <= intCount){
+        if (intLength - 2 <= intCount) {
         }else{
+          // Moves onto the next section of the word 
           intCount = intCount + 2;
         } 
-        //System.out.println(strNoMiddle);
       }
     }
   }
@@ -61,23 +67,29 @@ public static String zipZap(String strWord){
 public static String longestWord(String filenametxt) throws IOException{
   BufferedReader filename = new BufferedReader(new FileReader(filenametxt));
 
+  // Variables 
   String strWord;
   String strNextWord;
   int intWordLength;
   int intNextWordLength; 
 
+  // Reading from the file and inputting into the variables
   strWord = filename.readLine();
   strNextWord = filename.readLine();
     
-  while(strNextWord != null){
+  // Runs until the variable equals nothing 
+  while (strNextWord != null) {
+    // Getting the lengths of the words
     intWordLength = strWord.length();
     intNextWordLength = strNextWord.length();
-    if(intNextWordLength >= intWordLength){
+    // Comparing the lengths of the words
+    if (intNextWordLength >= intWordLength) {
       strWord = strNextWord; 
     }
     strNextWord = filename.readLine();
   }
   filename.close();
+
   return strWord;
 }
 
@@ -89,15 +101,19 @@ public static String longestWord(String filenametxt) throws IOException{
 */
 public static int[] tenRun(int[] nums){
     
+  // Variables  
   int intCount; 
   int intModulus;
   int intModulus2;
 
-  for(intCount = 0; intCount < nums.length-1; intCount++){
+  // for loops runs until the length of the array subtract 1 is reached 
+  for (intCount = 0; intCount < nums.length - 1; intCount++) {
+    // Getting the modulus of the values in the array 
     intModulus = nums[intCount] % 10;
-    intModulus2 = nums[intCount+1] % 10;
+    intModulus2 = nums[intCount + 1] % 10;
+    // If the modulus is 0, the value is a mutliple of 10 
     if(intModulus == 0 && intModulus2 != 0){
-      nums[intCount+1] = nums[intCount];
+      nums[intCount + 1] = nums[intCount];
     }
   }
   
@@ -111,37 +127,92 @@ public static int[] tenRun(int[] nums){
 * @return The result. True if all of the numbers in inner appear in outer.
 * @author V. Yang
 */
-public boolean linearIn(int[] outer, int[] inner){
+public static boolean linearIn(int[] outer, int[] inner){
 
+  // Variables
   int intCount;
   int intCounter;
   int intMatches;
   Boolean blnCheck = true;
   Boolean blnResult = true;
 
+  // Initializing variables
   intMatches = 0;
 
-  for(intCount = 0; intCount < inner.length; intCount++){
+  // for loop that runs until the length of the inner set of values is reached 
+  for (intCount = 0; intCount < inner.length; intCount++) {
+    // Re-initializing variables 
     intCounter = 0;
     blnCheck = true;
-    while(blnCheck == true){
-      if(inner[intCount] == outer[intCounter]){
+    // while loop runs until the blnCheck is true 
+    while (blnCheck == true) {
+      // If the inner value matches the outer value 
+      if (inner[intCount] == outer[intCounter]) {
         intMatches = intMatches + 1;
+        // Exits the while loop 
         blnCheck = false;
-      }else if(inner[intCount] != outer[intCounter]){
+      // If the inner value does not match the outer value 
+      }else if (inner[intCount] != outer[intCounter]) {
         intCounter = intCounter + 1;
-        if(intCounter > inner.length){
+        // If the end of the word is reached and there are no matches
+        if (intCounter > inner.length) {
+          // Exits the while loop 
           blnCheck = false;
           blnResult = false; 
         }
       }
     }
-  if(intMatches == inner.length){
+  }
+
+  // Checking to see if the result is true or false
+  if (intMatches == inner.length) {
     blnResult = true;
-  }else if(intMatches != inner.length){
+  }else if (intMatches != inner.length) {
     blnResult = false;
   }
-  }
+  
   return blnResult;
+}
+
+/**
+* A method that outputs to a text file pascalOut.txt, a comma separted table containing i rows and j columns of pascal's triangle. 
+* @param i The rows of the array 
+* @param j The columns of the array 
+* @author V. Yang
+*/
+public static void pascalTri(int i, int j) throws IOException{ 
+  // Setting up the pascalOut.txt file 
+  PrintWriter pascalOut = new PrintWriter(new FileWriter("src/gr11review/part2/pascalOut.txt"));
+
+  // Variables
+  int[][] intPascal = new int[i][j];
+  int intCount;
+  int intCount2;
+
+  // Setting up the 2-dimensional array 
+  for (intCount = 0; intCount < i; intCount++) {
+    for (intCount2 = 0; intCount2 < j; intCount2++) {
+      // Setting up the first column to equal 1
+      if (intCount2 == 0) {
+        intPascal[intCount][intCount2] = 1;
+      // Setting up the first row to equal 1
+      }else if (intCount == 0) {
+        intPascal[intCount][intCount2] = 1;
+      // Setting up the rest of the pascal triangle 
+      }else{
+        intPascal[intCount][intCount2] = intPascal[intCount - 1][intCount2]+ intPascal[intCount][intCount2 - 1];
+      }
+      // Printing out the results to the pascalOut.txt file 
+      if (intCount2 == j - 1) {
+        // No comma at the end of the number 
+        pascalOut.print(intPascal[intCount][intCount2]);
+      }else{
+        // Commas and space to separate the numbers
+        pascalOut.print(intPascal[intCount][intCount2] + ", ");
+      }
+    }
+    pascalOut.println("");
+  }
+  pascalOut.close();
 }
 }
