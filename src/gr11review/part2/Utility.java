@@ -211,3 +211,35 @@ public class Utility {
   }
 
 }
+
+public static String longestWord(String filenametxt) throws IOException{
+    BufferedReader filename = new BufferedReader(new FileReader(filenametxt));
+
+    int intLines;
+    int intCount;
+    int intLength1;
+    int intLength2;
+    int intCounter;
+    String strBigWord;
+    String strSmallWord;
+    String strWord;
+    String strWord1;
+    String strWord2;
+
+    intLines = 0;
+    strBigWord = "";
+    strSmallWord = "";
+    intCounter = 0;
+
+    strWord = filename.readLine();
+
+    while(strWord != null){
+      if (strWord.length() >= strBigWord){
+        strBigWord = strWord;
+      }
+      strWord = filename.readLine();
+
+      }
+    return strBigWord; 
+    }
+    
