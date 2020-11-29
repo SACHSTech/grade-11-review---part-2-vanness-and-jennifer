@@ -29,8 +29,11 @@ public class Main {
     // System.out.println(notAlone(nums, value));
     
     // //Arrays 4
-    // int[] list = {1, 1, 1, 2, 1};
+    int[] list = {1, 1, 1, 2, 1};
     // System.out.println(Utility.canBalance(list[]));
+    if (canBalance(list[]) == true){
+      System.out.println("true");
+    }
 
     // Arrays 6 
     int n = 4; 
