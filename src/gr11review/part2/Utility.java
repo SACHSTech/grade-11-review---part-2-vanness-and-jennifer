@@ -3,15 +3,15 @@ package gr11review.part2;
 import java.io.*;
 
 /**
-* A program that contains all the methods
-* @author: J. Luk
-* 
-*/
+ * A program that contains all the methods
+ * 
+ * @author: J. Luk
+ * 
+ */
 public class Utility {
 
   /**
-  * A program that returns the sum of the numbers appearing in a given string,
-  * ignoring all other characters.
+  * A program that returns the sum of the numbers appearing in a given string, ignoring all other characters.
   * 
   * @param
   * @return
@@ -43,8 +43,7 @@ public class Utility {
   }
 
   /**
-  * A method that given the name of a file filenametxt that contains a single
-  * word on each line, returns the word that is alphabetically first.
+  * A method that given the name of a file filenametxt that contains a single word on each line, returns the word that is alphabetically first.
   * 
   * @author: J. Luk
   * 
@@ -103,38 +102,32 @@ public class Utility {
   }
 
   /**
-   * A method that returns a version of the given array where every instance of
-   * the given value which is alone is replaced by whichever value to its left or
-   * right is larger.
+   * A method that returns a version of the given array where every instance of  the given value which is alone is replaced by whichever value to its left or right is larger.
    * 
    * @author: J. Luk // * //
    */
   public int[] notAlone(int[] nums, int value) {
-    int[] array = new int[nums.length];
 
-    if (nums.length >= 1) {
+    for (int count = 0; count < nums.length - 1; count++) {
 
-      array[0] = nums[0];
-      array[array.length - 1] = nums[nums.length - 1];
+      // check if the number in the array is the given value 
+      if (nums[count] == value) {
+        if ((count - 1 >= 0 && nums[count - 1] != nums[count]) && nums[count + 1] != nums[count]) {
 
-    }
-
-    for (int count = 1; count <= nums.length - 2; count++) {
-      if (nums[count] == value && nums[count] != nums[count - 1] && nums[count] !=
-      nums[count + 1]) {
-        array[count] = Math.max(nums[count - 1], nums[count + 1]);
-      } else {
-        array[count] = nums[count];
+          // check to see if left or right is larger 
+          if (nums[count - 1] > nums[count + 1]) {
+            nums[count] = nums[count - 1];
+          } else {
+            nums[count] = nums[count + 1];
+          }
+        }
       }
-
     }
-    return array;
-  }
+    return nums;
+  }  
 
   /**
-  * A method that returns true if there is a place to split the array so that the
-  * sum of the numbers on one side is equal to the sum of the numbers on the
-  * other side.
+  * A method that returns true if there is a place to split the array so that the sum of the numbers on one side is equal to the sum of the numbers on the other side.
   * 
   * @author: J. Luk
   * 
@@ -170,7 +163,20 @@ public class Utility {
     return false;
   }
 
-  public static void diagonal(int n) {
+  /**
+  * A method that outputs to a text file diagonalOut.txt, a two-dimensional array of size (n×n) populated as follows, with a comma between each number: 
+  * The positions on the minor diagonal receive 1
+  * The positions above the diagonal receive 0
+  * The positions below the diaonal receive 2
+  * 
+  * @author: J. Luk
+  * 
+  */
+  public static void diagonal(int n) throws IOException {
+    PrintWriter theout = new PrintWriter(new FileWriter("src/gr11review/part2/diagonalOut.txt", true));
+
+    // declare variables
+    // set MAX array to be 100, can be changed
     int MAX = 100;
     int[][] mat = new int[MAX][MAX];
 
@@ -194,12 +200,12 @@ public class Utility {
     }
     for (int count = 0; count < n; count++) {
       for (int count2 = 0; count2 < n; count2++) {
-        System.out.print(mat[count][count2]);
+        theout.print(mat[count][count2]);
         if (count2 != n - 1) {
-          System.out.print(", ");
+          theout.print(", ");
         }
       }
-      System.out.println();
+      theout.println();
     }
 
   }

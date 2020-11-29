@@ -24,16 +24,17 @@ public class Main {
     System.out.println("The word that is alphabetically first is " +Output);
 
     // Arrays 2
-    // int[] nums = {1, 2, 3, 2, 5, 2}; 
-    // int value = 2;
-    // System.out.println(notAlone(nums, value));
+    int[] nums = {1, 2, 3, 2, 5, 2}; 
+    int value = 2;
+
+    Utility array2 = new Utility();
+    System.out.println(java.util.Arrays.toString(array2.notAlone(nums, value)));
     
     // //Arrays 4
     int[] list = {1, 1, 1, 2, 1};
-    // System.out.println(Utility.canBalance(list[]));
-    if (canBalance(list[]) == true){
-      System.out.println("true");
-    }
+
+    Utility array4 = new Utility();
+    System.out.println(array4.canBalance(list));
 
     // Arrays 6 
     int n = 4; 
