@@ -109,7 +109,7 @@ public static int[] tenRun(int[] nums){
     intModulus = nums[intCount] % 10;
     intModulus2 = nums[intCount + 1] % 10;
     // If the modulus is 0, the value is a mutliple of 10 
-    if(intModulus == 0 && intModulus2 != 0){
+    if (intModulus == 0 && intModulus2 != 0) {
       nums[intCount + 1] = nums[intCount];
     }
   }
