@@ -316,14 +316,14 @@ public class Utility {
   }
 
   /**
-   * A method that returns a version of the given array where every instance of  the given value which is alone is replaced by whichever value to its left or right is larger.
-   * 
-   * @author: J. Luk 
-   * @param nums the array of numbers
-   * @param value the value which is alone and needs to be replaced
-   * @return the array with the alone value replaced with the larger value on its left or right
-   * 
-   */
+  * A method that returns a version of the given array where every instance of  the given value which is alone is replaced by whichever value to its left or right is larger.
+  * 
+  * @author: J. Luk 
+  * @param nums the array of numbers
+  * @param value the value which is alone and needs to be replaced
+  * @return the array with the alone value replaced with the larger value on its left or right
+  * 
+  */
   public static int[] notAlone(int[] nums, int value){
 
     for (int count = 0; count < nums.length - 1; count++) {
