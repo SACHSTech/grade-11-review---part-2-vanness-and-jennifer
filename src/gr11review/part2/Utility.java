@@ -18,7 +18,7 @@ public class Utility {
   * @author: J. Luk
   * 
   */
-  public static int sumNumbers(String strInput) {
+  public static int sumNumbers(String strInput){
 
     // declare variables
     int numbersum = 0;
@@ -50,7 +50,7 @@ public class Utility {
   * @return the alphabetically first word in the list
   * 
   */
-  public static String alphaWord(String filenametxt) throws IOException {
+  public static String alphaWord(String filenametxt) throws IOException{
     BufferedReader filename = new BufferedReader(new FileReader(filenametxt));
 
     // declare variables
@@ -112,7 +112,7 @@ public class Utility {
    * @return the array with the alone value replaced with the larger value on its left or right
    * 
    */
-  public static int[] notAlone(int[] nums, int value) {
+  public static int[] notAlone(int[] nums, int value){
 
     for (int count = 0; count < nums.length - 1; count++) {
 
@@ -140,7 +140,7 @@ public class Utility {
   * @return a boolean to classify if there is a split in the array if one side of the array is equal to the other side 
   * 
   */
-  public static boolean canBalance(int[] nums) {
+  public static boolean canBalance(int[] nums){
 
     // declare variables
     int sum = 0;
@@ -181,7 +181,7 @@ public class Utility {
   * @param n the number that determined the size of the two dimensional array (nxn) 
   * 
   */
-  public static void diagonal(int n) throws IOException {
+  public static void diagonal(int n) throws IOException{
     PrintWriter theout = new PrintWriter(new FileWriter("src/gr11review/part2/diagonalOut.txt", true));
 
     // declare variables
