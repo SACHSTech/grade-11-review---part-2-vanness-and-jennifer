@@ -13,8 +13,8 @@ public class Utility {
   /**
   * A program that returns the sum of the numbers appearing in a given string, ignoring all other characters.
   * 
-  * @param
-  * @return
+  * @param strInput A string that contatins numbers and letters
+  * @return the sum o fthe numbers in strInput
   * @author: J. Luk
   * 
   */
@@ -46,6 +46,8 @@ public class Utility {
   * A method that given the name of a file filenametxt that contains a single word on each line, returns the word that is alphabetically first.
   * 
   * @author: J. Luk
+  * @param filenametxt the file that contains a list of words
+  * @return the alphabetically first word in the list
   * 
   */
   public static String alphaWord(String filenametxt) throws IOException {
@@ -104,9 +106,13 @@ public class Utility {
   /**
    * A method that returns a version of the given array where every instance of  the given value which is alone is replaced by whichever value to its left or right is larger.
    * 
-   * @author: J. Luk // * //
+   * @author: J. Luk 
+   * @param nums the array of numbers
+   * @param value the value which is alone and needs to be replaced
+   * @return the array with the alone value replaced with the larger value on its left or right
+   * 
    */
-  public int[] notAlone(int[] nums, int value) {
+  public static int[] notAlone(int[] nums, int value) {
 
     for (int count = 0; count < nums.length - 1; count++) {
 
@@ -130,9 +136,11 @@ public class Utility {
   * A method that returns true if there is a place to split the array so that the sum of the numbers on one side is equal to the sum of the numbers on the other side.
   * 
   * @author: J. Luk
+  * @param nums an array of numbers 
+  * @return a boolean to classify if there is a split in the array if one side of the array is equal to the other side 
   * 
   */
-  public boolean canBalance(int[] nums) {
+  public static boolean canBalance(int[] nums) {
 
     // declare variables
     int sum = 0;
@@ -170,6 +178,7 @@ public class Utility {
   * The positions below the diaonal receive 2
   * 
   * @author: J. Luk
+  * @param n the number that determined the size of the two dimensional array (nxn) 
   * 
   */
   public static void diagonal(int n) throws IOException {

@@ -37,7 +37,7 @@ public class Main {
     System.out.println(array4.canBalance(list));
 
     // Arrays 6 
-    int n = 4; 
+    int n = 9; 
     int MAX = 100; 
     int[][] mat = new int[MAX][MAX];
 
