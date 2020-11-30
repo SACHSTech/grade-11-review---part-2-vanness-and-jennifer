@@ -1,5 +1,3 @@
-package gr11review.part2;
-
 import java.io.*;
 import java.util.Arrays.*;
 /**
@@ -214,5 +212,4 @@ public static void pascalTri(int i, int j) throws IOException{
     pascalOut.println("");
   }
   pascalOut.close();
-}
 }
